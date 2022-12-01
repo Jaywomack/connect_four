@@ -50,6 +50,10 @@ The beauty of connect four. It's simple. Get four in a row, while callously thwa
 
 ---
 
+> Persistent win loss between users
+
+> login and authentication
+
 > Smart AI that doesn't just choose a random available square. Maybe by priortizing finishing a win condition array if move is available.
 
 > Players can choose colors and the background will change to create contrast if the color does not have enough contrast from the chosen color.
