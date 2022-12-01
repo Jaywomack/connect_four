@@ -9,12 +9,28 @@
 			content="Connect four with Vanilla HTML, CSS, and JS "
 		/>
 		<link rel="stylesheet" href="./css/style.css" />
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
 		<script src="./js/app.js" defer></script>
 		<title>Connect Four | Home</title>
 	</head>
 	<body>
-		<h1>Connect Four</h1>
+		<div class="container">
+			<aside class="left-aside">
+				<p>Connect 4 squares to win</p>
+				<p>Block opponent from connection four squares</p>
+				<p>Try to win in as few moves as possible</p>
+			</aside>
+			<div class="header">
+				<h1>Connect Four Squares To Win</h1>
+				<button class="btn new-game-btn">New Game</button>
+			</div>
+			<aside class="right-aside">
+				<div class="active-player-circle">default Black</div>
+				<p>Turn: <span>Black</span></p>
+				<p>Moves: <span>4</span></p>
+				<p>Game Over! <span>Blue Wins</span></p>
+			</aside>
+			<div class="game-container"></div>
+		</div>
 	</body>
 </html>
