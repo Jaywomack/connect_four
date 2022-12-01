@@ -38,3 +38,8 @@ body {
 
 	min-height: 90%;
 }
+
+.square {
+	color: gray;
+	font-size: 7.2vw;
+}
