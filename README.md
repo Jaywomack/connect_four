@@ -34,8 +34,6 @@ The beauty of connect four. It's simple. Get four in a row, while callously thwa
 
 > Implement a board reset that does not use location.reload()
 
-> Alternate between players or have a cpu opponent
-
 > Use development best practices to create UI that is intuitive and accessible.
 
 > Create menu button that when clicked will display game rules to the screen
@@ -50,11 +48,13 @@ The beauty of connect four. It's simple. Get four in a row, while callously thwa
 
 ---
 
+> Alternate between players or have a cpu opponent
+
 > Persistent win loss between users
 
 > login and authentication
 
-> Smart AI that doesn't just choose a random available square. Maybe by priortizing finishing a win condition array if move is available.
+> Smart AI that doesn't just choose a random available square. Maybe by prioritizing finishing a win condition array if move is available.
 
 > Players can choose colors and the background will change to create contrast if the color does not have enough contrast from the chosen color.
 
