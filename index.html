@@ -16,17 +16,25 @@
 	<body>
 		<div class="container">
 			<aside class="left-aside">
-				<p>Connect 4 squares to win</p>
+				<p>Connect Four squares to win</p>
 				<p>Block opponent from connecting four squares</p>
 				<p>Try to win in as few moves as possible</p>
 			</aside>
 			<div class="header">
-				<h1>Connect Four Squares To Win</h1>
+				<h1 class="title">Connect Four Squares To Win</h1>
 				<button class="btn new-game-btn">New Game</button>
 			</div>
 			<aside class="right-aside">
-				<div class="active-player-circle">default Black</div>
-				<p>Turn: <span>Black</span></p>
+				<div class="div"></div>
+				<div class="player-turn-container">
+					<p>Turn: <span>Black</span></p>
+					<button
+						id="active-player"
+						class="square active-player-square"
+					>
+						O
+					</button>
+				</div>
 				<p>Moves: <span>4</span></p>
 				<p>Game Over! <span>Blue Wins</span></p>
 			</aside>
