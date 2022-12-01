@@ -1,3 +1,6 @@
+/* * {
+	box-sizing: border-box;
+} */
 body {
 	background-image: url('../img/chalk_bg.png');
 	background-color: rgb(25, 25, 25);
@@ -58,6 +61,8 @@ body {
 	grid-column-gap: 1px;
 	grid-row-gap: 1px;
 	min-height: 90%;
+	border: 1px solid lightgray;
+	border-radius: 50px;
 }
 /* Individual game squares for game*/
 .square {
@@ -107,4 +112,11 @@ body {
 .new-game-btn:active {
 	position: relative;
 	top: 1px;
+}
+
+/* Media Queries */
+@media (min-width: 600px) {
+	.game-container {
+		border: 10px solid lightgray;
+	}
 }
