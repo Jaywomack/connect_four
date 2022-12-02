@@ -4,7 +4,6 @@
 
 ---
 
-
 ## The Pitch
 
 ---
@@ -50,6 +49,8 @@ The beauty of connect four. It's simple. Get four in a row, while callously thwa
 ## Stretch Goals
 
 ---
+
+> set each aside to a different player and their stats. Have an indicator move from side to side to indicate whose turn it is.
 
 > Alternate between players or have a cpu opponent
 
