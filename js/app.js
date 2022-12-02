@@ -99,8 +99,26 @@ let winningArray = [
 	[26, 32, 38, 44],
 	[25, 31, 37, 43],
 ]
+// Store square.id in player arrays
 let playerOne = []
 let playerTwo = []
+let playerOneAndTwoArray = []
+let enabledButtons = new Set()
+
+// Enable squares when square below them is clicked
+function enableSquare(event) {
+	// when a square is clicked enable the square with id -7
+	playerOneAndTwoArray.forEach((i) => {
+		if (event.target.id > 7) {
+			let id = Number(event.target.id) - 7
+			enabledButtons.add(id)
+		}
+		;[...enabledButtons].forEach((id) => {
+			document.getElementById(`${String(id)}`).disabled = false
+		})
+	})
+}
+// Check player arrays for winning condition match
 function winCond() {
 	winningArray.forEach((i) => {
 		if (i.every((j) => playerOne.includes(j))) {
@@ -111,8 +129,8 @@ function winCond() {
 	})
 }
 
-// Helper functions
-const setSquareColor = (event, currentPlayer) => {
+// Set the color of the square based on current player
+function setSquareColor(event, currentPlayer) {
 	if (currentPlayer === 0) {
 		event.target.style.color = 'black'
 		event.target.disabled = true
@@ -145,11 +163,21 @@ squares.forEach((square) => {
 		if (currentPlayer === 0) {
 			playerOne.push(Number(e.target.id))
 			winCond()
-			console.log(`player one array ${playerOne}`)
+			playerOneAndTwoArray.push(e.target.id)
+			enableSquare(e)
+			console.log(enabledButtons)
+			console.log(playerOneAndTwoArray)
+
+			// console.log(`player one array ${playerOne}`)
 		} else if (currentPlayer === 1) {
 			playerTwo.push(Number(e.target.id))
 			winCond()
-			console.log(`player two array ${playerTwo}`)
+			playerOneAndTwoArray.push(e.target.id)
+			enableSquare(e)
+			console.log(enabledButtons)
+			console.log(playerOneAndTwoArray)
+
+			// console.log(`player two array ${playerTwo}`)
 		}
 
 		currentPlayer = moves % 2 === 0 ? 0 : 1
