@@ -7,12 +7,18 @@ let currentPlayer = 0
 let moves = 0
 
 // Helper functions
-const selectSquare = (event, currentPlayer) => {
+const setSquareColor = (event, currentPlayer) => {
 	if (currentPlayer === 0) {
 		event.target.style.color = 'black'
 	} else if (currentPlayer === 1) {
 		event.target.style.color = 'red'
 	}
+}
+
+// Set Player UI to Current Player
+const playerUI = (currentPlayer) => {
+	let player = currentPlayer === 0 ? 'Black' : 'Red'
+	document.querySelector('.player-turn').textContent = player
 }
 
 // random int helper function
@@ -25,16 +31,10 @@ function getRandomInt(min, max) {
 // Iterate over all squares and attach an click event listener
 squares.forEach((square) => {
 	square.addEventListener('click', (e) => {
-		selectSquare(e, currentPlayer)
+		setSquareColor(e, currentPlayer)
 		moves++
 		currentPlayer = moves % 2 === 0 ? 0 : 1
+		playerUI(currentPlayer)
 		console.log(moves)
 	})
 })
-
-let totalHeight = 100
-let staticGap = 10
-
-let box1Height = getRandomInt(1, 85)
-console.log(box1Height)
-let box2Height = remainder
