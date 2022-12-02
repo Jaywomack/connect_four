@@ -118,7 +118,10 @@ function enableSquare(event) {
 		})
 	})
 }
-
+// Reset UI
+function resetUI() {
+	location.reload()
+}
 // disable board
 function disableBoard() {
 	squares.forEach((s) => {
@@ -207,4 +210,9 @@ document.querySelector('.menu-btn').addEventListener('click', (e) => {
 	document.querySelectorAll('.menu').forEach((menu) => {
 		menu.classList.toggle('hidden')
 	})
+})
+
+newGameBtn.addEventListener('click', (e) => {
+	e.preventDefault()
+	resetUI()
 })
