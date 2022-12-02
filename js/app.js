@@ -5,7 +5,7 @@ const newGameBtn = document.querySelector('.new-game-btn')
 // Global Variables
 let currentPlayer = 0
 let moves = 0
-let winningArrays = [
+let winningArray = [
 	// East West
 	[1, 2, 3, 4],
 	[2, 3, 4, 5],
@@ -99,9 +99,18 @@ let winningArrays = [
 	[26, 32, 38, 44],
 	[25, 31, 37, 43],
 ]
-const playerOneMoves = []
-const playerTwoMoves = []
-
+let playerOne = [1, 2, 3]
+let playerTwo = [25, 31, 37, 43]
+function winCond() {
+	winningArray.forEach((i) => {
+		if (i.every((j) => playerOne.includes(j))) {
+			console.log('player one wins')
+		} else if (i.every((j) => playerTwo.includes(j))) {
+			console.log('player two wins')
+		}
+	})
+}
+winCond()
 // Helper functions
 const setSquareColor = (event, currentPlayer) => {
 	if (currentPlayer === 0) {
