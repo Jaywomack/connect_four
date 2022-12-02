@@ -5,6 +5,29 @@ const newGameBtn = document.querySelector('.new-game-btn')
 // Global Variables
 let currentPlayer = 0
 let moves = 0
+let winningArrays = [
+	[1, 2, 3, 4],
+	[2, 3, 4, 5],
+	[3, 4, 5, 6],
+	[4, 5, 6, 7],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+	[],
+]
+const playerOneMoves = []
+const playerTwoMoves = []
 
 // Helper functions
 const setSquareColor = (event, currentPlayer) => {
@@ -33,6 +56,7 @@ function getRandomInt(min, max) {
 
 // Iterate over all squares and attach an click event listener
 squares.forEach((square) => {
+	square.title = square.id
 	square.addEventListener('click', (e) => {
 		setSquareColor(e, currentPlayer)
 		moves++
