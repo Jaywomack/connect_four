@@ -140,7 +140,7 @@ body {
 		border: 10px solid lightgray;
 		height: 90%;
 	}
-	.left-aside {
-		display: flex;
+	.left-aside > p {
+		font-size: 2.3vw;
 	}
 }
