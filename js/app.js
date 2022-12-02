@@ -57,13 +57,13 @@ let winningArray = [
 	[19, 26, 33, 40],
 	[20, 27, 34, 41],
 	[21, 28, 35, 42],
-	[22, 29, 35, 43],
-	[23, 30, 36, 44],
-	[24, 31, 37, 45],
-	[25, 32, 38, 46],
-	[26, 33, 39, 47],
-	[27, 34, 40, 48],
-	[28, 35, 41, 49],
+	[22, 29, 36, 43],
+	[23, 30, 37, 44],
+	[24, 31, 38, 45],
+	[25, 32, 39, 46],
+	[26, 33, 40, 47],
+	[27, 34, 41, 48],
+	[28, 35, 42, 49],
 	// Diagonal left => right
 	[1, 9, 17, 25],
 	[2, 10, 18, 26],
@@ -138,7 +138,6 @@ function getRandomInt(min, max) {
 
 // Iterate over all squares and attach an click event listener
 squares.forEach((square) => {
-	square.title = square.id
 	square.addEventListener('click', (e) => {
 		e.preventDefault()
 		setSquareColor(e, currentPlayer)
