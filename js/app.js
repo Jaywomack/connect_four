@@ -178,12 +178,13 @@ squares.forEach((square) => {
 			document.querySelector('.right-aside').classList.remove('hidden')
 		}
 		e.preventDefault()
-		setSquareColor(e, currentPlayer)
+
 		moves++
 		if (currentPlayer === 0) {
 			playerOne.push(Number(e.target.id))
 			playerOneAndTwoArray.push(e.target.id)
 			enableSquare(e)
+			setSquareColor(e, currentPlayer)
 			winCond()
 			console.log(enabledButtons)
 			console.log(playerOneAndTwoArray)
@@ -193,6 +194,7 @@ squares.forEach((square) => {
 			playerTwo.push(Number(e.target.id))
 			playerOneAndTwoArray.push(e.target.id)
 			enableSquare(e)
+			setSquareColor(e, currentPlayer)
 			winCond()
 			console.log(enabledButtons)
 			console.log(playerOneAndTwoArray)
