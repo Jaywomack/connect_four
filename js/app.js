@@ -10,15 +10,18 @@ let moves = 0
 const setSquareColor = (event, currentPlayer) => {
 	if (currentPlayer === 0) {
 		event.target.style.color = 'black'
+		event.target.disabled = true
 	} else if (currentPlayer === 1) {
 		event.target.style.color = 'red'
+		event.target.disabled = true
 	}
 }
 
 // Set Player UI to Current Player
-const playerUI = (currentPlayer) => {
+const setUI = (currentPlayer, moves) => {
 	let player = currentPlayer === 0 ? 'Black' : 'Red'
 	document.querySelector('.player-turn').textContent = player
+	document.querySelector('.moves').textContent = moves
 }
 
 // random int helper function
@@ -34,7 +37,8 @@ squares.forEach((square) => {
 		setSquareColor(e, currentPlayer)
 		moves++
 		currentPlayer = moves % 2 === 0 ? 0 : 1
-		playerUI(currentPlayer)
+		setUI(currentPlayer, moves)
+
 		console.log(moves)
 	})
 })
