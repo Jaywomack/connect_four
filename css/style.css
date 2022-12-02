@@ -27,16 +27,19 @@ body {
 	justify-content: space-around;
 	text-align: left;
 }
-
+.hamburger {
+	color: white;
+	stroke: white;
+}
 .left-aside > p {
 	font-size: 3.2vw;
 	width: 60%;
-	color: #38b6ff;
+	color: lightgray;
 }
 .right-aside > p {
 	font-size: 3.2vw;
 	width: 60%;
-	color: #38b6ff;
+	color: lightgray;
 }
 .header {
 	grid-area: 1 / 2 / 2 / 5;
@@ -58,9 +61,10 @@ body {
 	display: grid;
 	grid-template-columns: repeat(7, 1fr);
 	grid-template-rows: repeat(7, 1fr);
+
 	grid-column-gap: 1px;
 	grid-row-gap: 1px;
-	min-height: 90%;
+	min-height: 50%;
 	border: 1px solid lightgray;
 	border-radius: 50px;
 }
@@ -70,22 +74,27 @@ body {
 	font-size: 7.2vw;
 	border: none;
 	background: transparent;
+	height: 75px;
+	cursor: pointer;
 }
 
 #active-player {
 	font-size: 7.2vw;
-	color: #38b6ff;
+	color: lightgray;
 }
 
 .player-turn-container {
 	display: flex;
-	color: #38b6ff;
+	color: lightgray;
 }
 .player-turn-container > p {
 	font-size: 3.2vw;
-	color: #38b6ff;
+	color: lightgray;
 }
 
+.player-turn {
+	color: black;
+}
 .title {
 	font-size: 3rem;
 	color: lightgray;
@@ -96,10 +105,10 @@ body {
 	background: linear-gradient(to bottom, #ededed 5%, lightgray 100%);
 	background-color: #ededed;
 	border-radius: 15px;
-	border: 1px solid #d6bcd6;
+	border: 1px solid black;
 	display: inline-block;
 	cursor: pointer;
-	color: #38b6ff;
+	color: black;
 	font-family: Arial;
 	font-size: 17px;
 	padding: 7px 25px;
@@ -114,11 +123,19 @@ body {
 	position: relative;
 	top: 1px;
 }
-
+.hidden {
+	display: none;
+}
+.menu-btn {
+	font-size: 2rem;
+	color: lightgray;
+	cursor: pointer;
+}
 /* Media Queries */
 
-@media (min-width: 600px) {
+@media (min-width: 1000px) {
 	.game-container {
 		border: 10px solid lightgray;
+		height: 90%;
 	}
 }

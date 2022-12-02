@@ -1,7 +1,7 @@
 // DOM SELECTORS
 const squares = document.querySelectorAll('.square')
 const newGameBtn = document.querySelector('.new-game-btn')
-
+const title = document.querySelector('.title')
 // Global Variables
 let currentPlayer = 0
 let moves = 0
@@ -108,7 +108,7 @@ let enabledButtons = new Set()
 // Enable squares when square below them is clicked
 function enableSquare(event) {
 	// when a square is clicked enable the square with id -7
-	playerOneAndTwoArray.forEach((i) => {
+	playerOneAndTwoArray.forEach(() => {
 		if (event.target.id > 7) {
 			let id = Number(event.target.id) - 7
 			enabledButtons.add(id)
@@ -118,13 +118,29 @@ function enableSquare(event) {
 		})
 	})
 }
+
+// disable board
+function disableBoard() {
+	squares.forEach((s) => {
+		s.disabled = true
+	})
+	console.log('board disabled')
+}
 // Check player arrays for winning condition match
 function winCond() {
 	winningArray.forEach((i) => {
 		if (i.every((j) => playerOne.includes(j))) {
-			console.log('player one wins')
+			title.textContent = 'Black Wins'
+			title.style.color = 'black'
+			disableBoard()
 		} else if (i.every((j) => playerTwo.includes(j))) {
-			console.log('player two wins')
+			title.textContent = 'Red Wins'
+			title.style.color = 'red'
+			disableBoard()
+		} else if (moves === 49) {
+			title.textContent = 'Tie Game'
+			title.style.color = 'yellow'
+			disableBoard()
 		}
 	})
 }
@@ -143,37 +159,38 @@ function setSquareColor(event, currentPlayer) {
 // Set Player UI to Current Player
 const setUI = (currentPlayer, moves) => {
 	let player = currentPlayer === 0 ? 'Black' : 'Red'
-	document.querySelector('.player-turn').textContent = player
-	document.querySelector('.moves').textContent = moves
-}
 
-// random int helper function
-function getRandomInt(min, max) {
-	min = Math.ceil(min)
-	max = Math.floor(max)
-	return Math.floor(Math.random() * (max - min + 1)) + min
+	let playerTurn = document.querySelector('.player-turn')
+	playerTurn.textContent = player
+	playerTurn.style.color = player.toLowerCase()
+	document.querySelector('.moves').textContent = moves
 }
 
 // Iterate over all squares and attach an click event listener
 squares.forEach((square) => {
 	square.addEventListener('click', (e) => {
+		if (
+			document.querySelector('.right-aside').classList.contains('hidden')
+		) {
+			document.querySelector('.right-aside').classList.remove('hidden')
+		}
 		e.preventDefault()
 		setSquareColor(e, currentPlayer)
 		moves++
 		if (currentPlayer === 0) {
 			playerOne.push(Number(e.target.id))
-			winCond()
 			playerOneAndTwoArray.push(e.target.id)
 			enableSquare(e)
+			winCond()
 			console.log(enabledButtons)
 			console.log(playerOneAndTwoArray)
 
 			// console.log(`player one array ${playerOne}`)
 		} else if (currentPlayer === 1) {
 			playerTwo.push(Number(e.target.id))
-			winCond()
 			playerOneAndTwoArray.push(e.target.id)
 			enableSquare(e)
+			winCond()
 			console.log(enabledButtons)
 			console.log(playerOneAndTwoArray)
 
@@ -182,5 +199,12 @@ squares.forEach((square) => {
 
 		currentPlayer = moves % 2 === 0 ? 0 : 1
 		setUI(currentPlayer, moves)
+	})
+})
+
+document.querySelector('.menu-btn').addEventListener('click', (e) => {
+	e.preventDefault()
+	document.querySelectorAll('.menu').forEach((menu) => {
+		menu.classList.toggle('hidden')
 	})
 })
