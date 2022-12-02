@@ -17,6 +17,7 @@ body {
 	grid-column-gap: 0px;
 	grid-row-gap: 0px;
 	min-height: 100vh;
+	max-width: 1250px;
 }
 
 .left-aside {
