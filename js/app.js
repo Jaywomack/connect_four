@@ -99,8 +99,8 @@ let winningArray = [
 	[26, 32, 38, 44],
 	[25, 31, 37, 43],
 ]
-let playerOne = [1, 2, 3]
-let playerTwo = [25, 31, 37, 43]
+let playerOne = []
+let playerTwo = []
 function winCond() {
 	winningArray.forEach((i) => {
 		if (i.every((j) => playerOne.includes(j))) {
@@ -110,7 +110,7 @@ function winCond() {
 		}
 	})
 }
-winCond()
+
 // Helper functions
 const setSquareColor = (event, currentPlayer) => {
 	if (currentPlayer === 0) {
@@ -140,11 +140,20 @@ function getRandomInt(min, max) {
 squares.forEach((square) => {
 	square.title = square.id
 	square.addEventListener('click', (e) => {
+		e.preventDefault()
 		setSquareColor(e, currentPlayer)
 		moves++
+		if (currentPlayer === 0) {
+			playerOne.push(Number(e.target.id))
+			winCond()
+			console.log(`player one array ${playerOne}`)
+		} else if (currentPlayer === 1) {
+			playerTwo.push(Number(e.target.id))
+			winCond()
+			console.log(`player two array ${playerTwo}`)
+		}
+
 		currentPlayer = moves % 2 === 0 ? 0 : 1
 		setUI(currentPlayer, moves)
-
-		console.log(moves)
 	})
 })
