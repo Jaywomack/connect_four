@@ -120,7 +120,7 @@ function enableSquare(event) {
 }
 // Reset UI
 function resetUI() {
-	location.reload()
+	// location.reload()
 }
 // disable board
 function disableBoard() {
