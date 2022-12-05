@@ -2,9 +2,7 @@
 const squares = document.querySelectorAll('.square')
 const newGameBtn = document.querySelector('.new-game-btn')
 const title = document.querySelector('.title')
-// Global Variables
-let currentPlayer = 0
-let moves = 0
+
 let winningArray = [
 	// East West
 	[1, 2, 3, 4],
@@ -99,12 +97,14 @@ let winningArray = [
 	[26, 32, 38, 44],
 	[25, 31, 37, 43],
 ]
+// Global Variables
 // Store square.id in player arrays
 let playerOne = []
 let playerTwo = []
 let playerOneAndTwoArray = []
 let enabledButtons = new Set()
-
+let currentPlayer = 0
+let moves = 0
 // Enable squares when square below them is clicked
 function enableSquare(event) {
 	// when a square is clicked enable the square with id -7
@@ -113,21 +113,43 @@ function enableSquare(event) {
 			let id = Number(event.target.id) - 7
 			enabledButtons.add(id)
 		}
+
 		;[...enabledButtons].forEach((id) => {
 			document.getElementById(`${String(id)}`).disabled = false
 		})
 	})
 }
+
 // Reset UI
 function resetUI() {
-	// location.reload()
+	// set all global variables to starting state
+	playerOne = []
+	playerTwo = []
+	playerOneAndTwoArray = []
+	enabledButtons = new Set()
+	currentPlayer = 0
+	moves = 0
+	// reset h1 at top
+	title.textContent = 'Connect Four Squares To Win'
+	title.style.color = 'lightgray'
+	// set all squares to disabled
+	disableBoard()
+	// Enable bottom row
+	squares.forEach((s) => {
+		s.style.color = 'lightgray'
+		if (Number(s.id) >= 43) {
+			s.disabled = false
+		}
+	})
+	setUI()
+	document.querySelector('.right-aside').classList.add('hidden')
 }
 // disable board
 function disableBoard() {
 	squares.forEach((s) => {
 		s.disabled = true
 	})
-	console.log('board disabled')
+	// console.log('board disabled')
 }
 // Check player arrays for winning condition match
 function winCond() {
@@ -186,8 +208,8 @@ squares.forEach((square) => {
 			enableSquare(e)
 			setSquareColor(e, currentPlayer)
 			winCond()
-			console.log(enabledButtons)
-			console.log(playerOneAndTwoArray)
+			// console.log(enabledButtons)
+			// console.log(playerOneAndTwoArray)
 
 			// console.log(`player one array ${playerOne}`)
 		} else if (currentPlayer === 1) {
@@ -196,8 +218,8 @@ squares.forEach((square) => {
 			enableSquare(e)
 			setSquareColor(e, currentPlayer)
 			winCond()
-			console.log(enabledButtons)
-			console.log(playerOneAndTwoArray)
+			// console.log(enabledButtons)
+			// console.log(playerOneAndTwoArray)
 
 			// console.log(`player two array ${playerTwo}`)
 		}
